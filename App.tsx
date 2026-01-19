@@ -1,20 +1,58 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// App.tsx
+import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './Screens/HomeScreen';
+import PostDetailsScreen from './Screens/PostDetailsScreen';
 
-export default function App() {
+// Type definitions for navigation
+export type RootStackParamList = {
+  Home: undefined;
+  PostDetails: { post: any };
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+function RootNavigator() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: '#007AFF',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: '700' as const,
+          fontSize: 18,
+        },
+      }}
+    >
+      <Stack.Screen 
+        name="Home" 
+        component={HomeScreen}
+        options={{
+          title: 'Social Feed',
+        }}
+      />
+      <Stack.Screen 
+        name="PostDetails" 
+        component={PostDetailsScreen}
+        options={{
+          title: 'Post Details',
+        }}
+      />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+}
