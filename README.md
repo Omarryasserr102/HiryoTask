@@ -28,7 +28,7 @@ This project uses **Expo Go**, making it easy to run on both iOS and Android wit
 
 1.  **Clone the repository:**
     ```bash
-    git clone <YOUR_GITHUB_REPO_URL_HERE>
+    git clone <https://github.com/Omarryasserr102/HiryoTask.git>
     cd SocialApp
     ```
 
@@ -52,7 +52,7 @@ This project uses **Expo Go**, making it easy to run on both iOS and Android wit
 
 ## 📸 Screenshots
 
-made file called screenshots that includes the pictures 
+made folder called screenshots that includes the pictures 
 
 ### 📂 Project Structure
 
@@ -68,5 +68,7 @@ SocialApp/
 └──ScreenShots
 
 
+### Github link :
 
-# HiryoTask
+    https://github.com/Omarryasserr102/HiryoTask.git
+
